@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>CurioCraft Kenya | Authentic Handcrafted Treasures</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 120px;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Georgia', serif;
+      background: #fdf9f2;
+      color: #3e3a34;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 15% 25%, rgba(255, 215, 150, 0.25) 0%, transparent 50%),
+                  radial-gradient(circle at 85% 75%, rgba(210, 100, 40, 0.18) 0%, transparent 50%),
+                  radial-gradient(circle at 50% 50%, rgba(180, 60, 30, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+      z-index: 150;
+      cursor: pointer;
+      transition: all 0.3s;
+      animation: bounce 2s infinite;
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.6);
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-15px); }
+      60% { transform: translateY(-8px); }
+    }
+
+    /* Trust Badges Bar */
+    .trust-bar {
+      background: #5e2e14;
+      color: #f5e3cd;
+      text-align: center;
+      padding: 0.7rem 1rem;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      letter-spacing: 0.3px;
+    }
+
+    .trust-bar i {
+      color: #f0b87b;
+      margin-right: 0.4rem;
+    }
+
+    header {
+      background: rgba(255, 248, 235, 0.94);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 2px solid #e7c8a0;
+      animation: slideDown 0.6s ease-out;
+    }
+
+    @keyframes slideDown {
+      0% { transform: translateY(-100%); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      max-width: 1350px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #8b3a1a;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      letter-spacing: 1px;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .logo:hover {
+      transform: scale(1.04);
+    }
+
+    .logo i {
+      color: #c45a2c;
+      font-size: 2.3rem;
+      animation: pulse 2.6s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.18); color: #d4743c; }
+      100% { transform: scale(1); }
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #6b4e35;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      position: relative;
+      padding-bottom: 5px;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background: #c45a2c;
+      transition: width 0.35s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+    }
+
+    .nav-links a:hover {
+      color: #c45a2c;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .right-section {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+    }
+
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+    }
+
+    .nav-icons i {
+      font-size: 1.3rem;
+      color: #5e4030;
+      cursor: pointer;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-icons i:hover {
+      color: #c45a2c;
+      transform: translateY(-3px);
+    }
+
+    .cart-icon-wrapper {
+      position: relative;
+    }
+
+    #cart-count {
+      position: absolute;
+      top: -9px;
+      right: -13px;
+      background: #c44f2c;
+      color: white;
+      border-radius: 50%;
+      width: 21px;
+      height: 21px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: bold;
+      animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0); }
+      80% { transform: scale(1.25); }
+      100% { transform: scale(1); }
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: #5e4030;
+      cursor: pointer;
+      transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), color 0.3s ease;
+      z-index: 60;
+    }
+
+    .menu-toggle:hover {
+      color: #c45a2c;
+      transform: rotate(90deg);
+    }
+
+    /* Compact Slide-in Menu (Right side) */
+    .slide-menu {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 300px;
+      max-width: 85vw;
+      height: 100vh;
+      background: #fffbf5;
+      z-index: 200;
+      transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 1.8rem;
+      box-shadow: -10px 0 35px rgba(0,0,0,0.15);
+      border-left: 2px solid #e7c8a0;
+    }
+
+    .slide-menu.active {
+      right: 0;
+    }
+
+    .slide-menu .close-menu-btn {
+      align-self: flex-end;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: #5e4030;
+      cursor: pointer;
+      margin-bottom: 1.5rem;
+      transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), color 0.3s ease;
+    }
+
+    .slide-menu .close-menu-btn:hover {
+      color: #c45a2c;
+      transform: rotate(90deg);
+    }
+
+    .slide-menu a {
+      color: #5e4030;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid #f0e0cc;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: color 0.3s ease, padding-left 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+      letter-spacing: 0.5px;
+    }
+
+    .slide-menu a i {
+      width: 28px;
+      color: #b85a2a;
+      font-size: 1.1rem;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .slide-menu a:hover {
+      color: #b85a2a;
+      padding-left: 0.6rem;
+    }
+
+    .slide-menu a:hover i {
+      transform: scale(1.2);
+    }
+
+    .slide-menu .menu-info {
+      margin-top: auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e7c8a0;
+      font-size: 0.85rem;
+      color: #8b6e5a;
+      line-height: 1.6;
+    }
+
+    .slide-menu .menu-info i {
+      color: #b85a2a;
+      margin-right: 0.4rem;
+    }
+
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.35);
+      z-index: 199;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .container {
+      max-width: 1350px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2.8rem;
+      width: 100%;
+    }
+
+    /* Page transition wrapper */
+    .page-content {
+      animation: pageFadeIn 0.6s ease-out;
+    }
+
+    @keyframes pageFadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero {
+      background: linear-gradient(130deg, #fef3e4 0%, #f7d9b5 100%);
+      border-radius: 2.8rem;
+      padding: 3rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      border: 1px solid #e0b580;
+      gap: 2rem;
+      animation: heroFadeIn 0.8s ease-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-text h2 {
+      font-size: clamp(2.3rem, 5vw, 3.2rem);
+      font-weight: 700;
+      color: #5e2e14;
+      line-height: 1.2;
+    }
+
+    .hero-text .subtitle {
+      font-size: 1.2rem;
+      color: #8b5a3a;
+      margin: 0.8rem 0 0.2rem;
+      font-style: italic;
+    }
+
+    .hero-text .hero-highlight {
+      display: inline-block;
+      background: #fce4c8;
+      padding: 0.3rem 1.2rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      color: #8b3a1a;
+      margin: 0.5rem 0 1rem;
+      font-size: 0.95rem;
+    }
+
+    .shop-now-btn {
+      background: #b85a2a;
+      border: none;
+      color: white;
+      padding: 1rem 2.6rem;
+      border-radius: 3rem;
+      font-weight: 700;
+      margin-top: 1.5rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 1.1rem;
+      box-shadow: 0 8px 20px rgba(184, 90, 42, 0.4);
+      transition: background 0.3s ease, transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+      text-decoration: none;
+    }
+
+    .shop-now-btn:hover {
+      background: #92441e;
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(184, 90, 42, 0.5);
+    }
+
+    /* Customer Reviews Strip */
+    .reviews-strip {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 0.5rem 0;
+    }
+
+    .review-bubble {
+      background: white;
+      border-radius: 2rem;
+      padding: 1.2rem 1.8rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+      border: 1px solid #edd8bc;
+      flex: 1 1 250px;
+      text-align: center;
+      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+      animation: floatReview 4s ease-in-out infinite;
+    }
+
+    .review-bubble:nth-child(2) { animation-delay: 0.5s; }
+    .review-bubble:nth-child(3) { animation-delay: 1s; }
+
+    .review-bubble:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+    }
+
+    @keyframes floatReview {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .review-bubble .stars {
+      color: #f0a040;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .review-bubble p {
+      font-style: italic;
+      color: #5e4030;
+      font-size: 0.9rem;
+    }
+
+    .review-bubble strong {
+      display: block;
+      margin-top: 0.5rem;
+      color: #8b3a1a;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      color: #5e2e14;
+      font-family: 'Georgia', serif;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .section-title .badge {
+      background: #fce4c8;
+      font-size: 0.9rem;
+      padding: 0.3rem 1rem;
+      border-radius: 2rem;
+      font-family: 'Segoe UI', sans-serif;
+      font-weight: 600;
+      color: #8b3a1a;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .product-card {
+      background: #fffbf5;
+      border-radius: 2rem;
+      padding: 1.5rem;
+      box-shadow: 0 16px 28px rgba(0,0,0,0.05);
+      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #edd8bc;
+      animation: cardAppear 0.6s ease backwards;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card .sale-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: #c44f2c;
+      color: white;
+      padding: 0.3rem 0.9rem;
+      border-radius: 2rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      z-index: 2;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes cardAppear {
+      from { opacity: 0; transform: scale(0.92); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 28px 40px rgba(0,0,0,0.1);
+      border-color: #c28a4a;
+    }
+
+    .product-img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      border-radius: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.3rem;
+      overflow: hidden;
+      background: #f5e1c4;
+      position: relative;
+    }
+
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .product-card:hover .product-img img {
+      transform: scale(1.08);
+    }
+
+    .quick-view {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      background: white;
+      border: none;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      opacity: 0;
+      transition: opacity 0.35s ease, transform 0.3s ease;
+      color: #b85a2a;
+    }
+
+    .product-card:hover .quick-view {
+      opacity: 1;
+    }
+
+    .quick-view:hover {
+      transform: scale(1.1);
+    }
+
+    .add-to-cart {
+      background: white;
+      border: 2px solid #b85a2a;
+      color: #b85a2a;
+      padding: 0.7rem 1rem;
+      border-radius: 3rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .add-to-cart:hover {
+      background: #b85a2a;
+      color: white;
+      box-shadow: 0 6px 18px rgba(184, 90, 42, 0.4);
+    }
+
+    .add-to-cart.added {
+      background: #25D366;
+      border-color: #25D366;
+      color: white;
+      animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .artisans-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .artisan-card {
+      background: #fffbf5;
+      border-radius: 2rem;
+      padding: 2.2rem;
+      flex: 1 1 260px;
+      border: 1px solid #edd8bc;
+      text-align: center;
+      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+    }
+
+    .artisan-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.06);
+    }
+
+    .workshop-visit {
+      background: linear-gradient(135deg, #fef7ed, #fbe8d0);
+      border-radius: 2.5rem;
+      padding: 3rem 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      border: 1px solid #ddb680;
+      align-items: center;
+    }
+
+    .craft-classes {
+      background: #fdf5e9;
+      border-radius: 2.5rem;
+      padding: 3rem 2rem;
+      border: 1px solid #ddb680;
+    }
+
+    .class-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .class-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 2rem;
+      flex: 1 1 250px;
+      text-align: center;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.04);
+      border: 1px solid #f0dcc0;
+      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+    }
+
+    .class-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 32px rgba(0,0,0,0.07);
+    }
+
+    .book-btn {
+      background: transparent;
+      border: 2px solid #b85a2a;
+      color: #b85a2a;
+      padding: 0.6rem 1.8rem;
+      border-radius: 2.5rem;
+      margin-top: 1.5rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    }
+
+    .book-btn:hover {
+      background: #b85a2a;
+      color: white;
+      transform: scale(1.03);
+    }
+
+    /* Newsletter */
+    .newsletter {
+      background: #5e2e14;
+      border-radius: 2.5rem;
+      padding: 3rem 2rem;
+      text-align: center;
+      color: #f5e3cd;
+    }
+
+    .newsletter input {
+      padding: 0.9rem 1.5rem;
+      border-radius: 3rem;
+      border: none;
+      width: 280px;
+      max-width: 80%;
+      margin-top: 1rem;
+      font-size: 1rem;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .newsletter input:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(240, 184, 123, 0.5);
+    }
+
+    .newsletter button {
+      background: #f0b87b;
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 3rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-left: 0.5rem;
+      color: #5e2e14;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .newsletter button:hover {
+      background: #f5c992;
+      transform: scale(1.03);
+    }
+
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: -440px;
+      width: 420px;
+      max-width: 94vw;
+      height: 100vh;
+      background: #fffbf5;
+      z-index: 100;
+      transition: right 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+      padding: 2rem;
+      box-shadow: -8px 0 30px rgba(0,0,0,0.1);
+    }
+
+    .cart-sidebar.open { right: 0; }
+    .cart-overlay { position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.3); z-index:99; opacity:0; visibility:hidden; transition: opacity 0.4s ease, visibility 0.4s ease; }
+    .cart-overlay.show { opacity:1; visibility:visible; }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem;
+      background: #fff8ec;
+      border-top: 1px solid #e7c8a0;
+      margin-top: 2rem;
+      color: #6b4e35;
+    }
+
+    footer .footer-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+
+    footer .footer-links a {
+      color: #8b5a3a;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer .footer-links a:hover {
+      color: #b85a2a;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: block; }
+      .hero { flex-direction: column; text-align: center; }
+      .trust-bar { gap: 1rem; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Trust Badges -->
+  <div class="trust-bar">
+    <span><i class="fas fa-check-circle"></i> 100% Handcrafted</span>
+    <span><i class="fas fa-truck"></i> Free Shipping in Kenya</span>
+    <span><i class="fas fa-shield-alt"></i> Secure Checkout</span>
+    <span><i class="fas fa-undo"></i> Easy Returns</span>
+  </div>
+
+  <header>
+    <div class="nav-bar">
+      <div class="logo"><i class="fas fa-sun"></i> CurioCraft Kenya</div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#curios">Curios</a>
+        <a href="#artisans">Artisans</a>
+        <a href="#story">Story</a>
+      </div>
+      <div class="right-section">
+        <div class="nav-icons">
+          <i class="far fa-heart"></i>
+          <i class="far fa-user"></i>
+          <div class="cart-icon-wrapper" id="cartToggle">
+            <i class="fas fa-shopping-basket"></i>
+            <span id="cart-count">0</span>
+          </div>
+        </div>
+        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Compact Slide Menu -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <div class="slide-menu" id="slideMenu">
+    <button class="close-menu-btn" id="closeMenuBtn"><i class="fas fa-times"></i></button>
+    <a href="#home"><i class="fas fa-home"></i> Home</a>
+    <a href="#curios"><i class="fas fa-gem"></i> Curios</a>
+    <a href="#artisans"><i class="fas fa-users"></i> Artisans</a>
+    <a href="#story"><i class="fas fa-book-open"></i> Story</a>
+    <a href="#visit"><i class="fas fa-map-pin"></i> Visit Workshop</a>
+    <a href="#workshops"><i class="fas fa-paint-brush"></i> Craft Workshops</a>
+    <div class="menu-info">
+      <p><i class="fas fa-phone-alt"></i> +254 712 345678</p>
+      <p><i class="fas fa-envelope"></i> jambo@curiocraft.co.ke</p>
+      <p style="margin-top:0.8rem;">
+        <i class="fab fa-instagram" style="font-size:1.2rem; margin-right:1rem; cursor:pointer;"></i>
+        <i class="fab fa-facebook" style="font-size:1.2rem; margin-right:1rem; cursor:pointer;"></i>
+        <i class="fab fa-pinterest" style="font-size:1.2rem; cursor:pointer;"></i>
+      </p>
+    </div>
+  </div>
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <h3><i class="fas fa-shopping-basket"></i> Your Basket</h3>
+      <button id="closeCart" style="background:none;border:none;font-size:1.8rem;cursor:pointer;transition:transform 0.3s ease;" onmouseover="this.style.transform='rotate(90deg)'" onmouseout="this.style.transform='rotate(0deg)'"><i class="fas fa-times"></i></button>
+    </div>
+    <div id="cartItemsContainer" style="flex:1; overflow-y:auto; margin:1.5rem 0;"></div>
+    <div style="display:flex; justify-content:space-between; font-weight:bold; font-size:1.2rem;"><span>Total</span><span id="cartTotal">KSh 0</span></div>
+    <button id="checkoutBtn" style="background:#b85a2a;color:white;border:none;padding:1rem;border-radius:2.5rem;margin-top:1rem;font-weight:bold;width:100%;cursor:pointer;transition:background 0.3s ease, transform 0.3s ease;" onmouseover="this.style.background='#92441e'; this.style.transform='scale(1.02)'" onmouseout="this.style.background='#b85a2a'; this.style.transform='scale(1)'">Proceed to Checkout</button>
+    <p style="text-align:center; margin-top:0.8rem; font-size:0.85rem; color:#6b4e35;"><i class="fab fa-whatsapp"></i> Need help? <a href="#" style="color:#25D366; text-decoration:none;">Chat with us</a></p>
+  </div>
+
+  <!-- Floating WhatsApp -->
+  <a href="#" class="whatsapp-float" title="Chat with us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+  <div class="container page-content">
+    <section id="home" class="hero">
+      <div class="hero-text">
+        <h2>Authentic Kenyan<br>Handcrafted Treasures</h2>
+        <p class="subtitle">Bringing the soul of Africa into your home</p>
+        <span class="hero-highlight"><i class="fas fa-star"></i> Loved by 5,000+ customers worldwide</span>
+        <br>
+        <a href="#curios" class="shop-now-btn"><i class="fas fa-compass"></i> Explore Collection</a>
+      </div>
+      <div style="position:relative; z-index:2;">
+        <i class="fas fa-ankh" style="font-size:6rem; color:#b85a2a; filter:drop-shadow(0 10px 15px rgba(0,0,0,0.15)); animation: floatIcon 3s ease-in-out infinite;"></i>
+      </div>
+    </section>
+
+    <style>
+      @keyframes floatIcon {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+    </style>
+
+    <!-- Customer Love -->
+    <div class="reviews-strip">
+      <div class="review-bubble">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"The Maasai beadwork is absolutely stunning! Even more beautiful in person."</p>
+        <strong>– Amina, Nairobi</strong>
+      </div>
+      <div class="review-bubble">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"Bought the Kisii stone elephant as a gift – my friend adored it. Fast delivery!"</p>
+        <strong>– James, Mombasa</strong>
+      </div>
+      <div class="review-bubble">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"Supporting local artisans while getting world-class quality. Asante sana!"</p>
+        <strong>– Sarah, Kisumu</strong>
+      </div>
+    </div>
+
+    <section id="curios"><h2 class="section-title">✨ Authentic Kenyan Treasures <span class="badge">Bestsellers</span></h2><div class="product-grid" id="productGrid"></div></section>
+
+    <section id="artisans"><h2 class="section-title">🤝 Meet the Artisans</h2>
+      <div class="artisans-grid">
+        <div class="artisan-card"><i class="fas fa-female" style="font-size:2.5rem; color:#b85a2a;"></i><h4>Naima Maasai Beaders</h4><p>Intricate beadwork from Kajiado.</p></div>
+        <div class="artisan-card"><i class="fas fa-mountain" style="font-size:2.5rem;"></i><h4>Ochieng Kisii Carvers</h4><p>Soapstone sculptures from Tabaka.</p></div>
+        <div class="artisan-card"><i class="fas fa-tree" style="font-size:2.5rem;"></i><h4>Mwangi Wood Studio</h4><p>Wildlife carvings from mango wood.</p></div>
+      </div>
+    </section>
+
+    <section id="story"><h2 class="section-title">📖 Our Roots</h2><div style="display:flex; gap:2rem; flex-wrap:wrap;"><div style="flex:1; background:#fffbf5; padding:2rem; border-radius:2rem;"><i class="fas fa-seedling"></i><h4>From the Savanna to You</h4><p>CurioCraft Kenya partners with rural artisan cooperatives to preserve traditional crafts while creating sustainable livelihoods. Every purchase directly supports a family.</p></div></div></section>
+
+    <section id="visit"><div class="workshop-visit"><div><h2>📍 Visit Our Nairobi Studio</h2><p>Watch Maasai women bead intricate collars and Kisii carvers shape soapstone. Open daily for cultural demonstrations.</p><p><i class="fas fa-map-marker-alt"></i> Karen Road, Nairobi · 9am–5pm</p><button class="book-btn" style="margin-top:1rem;"><i class="fas fa-calendar-check"></i> Book a Visit</button></div><div><i class="fas fa-hut" style="font-size:4rem; color:#b85a2a;"></i></div></div></section>
+
+    <section id="workshops"><div class="craft-classes"><h2>🎨 Learn Traditional Crafts</h2><p style="margin-bottom:0.5rem;">Hands-on experiences led by master artisans. All materials provided.</p><div class="class-cards">
+      <div class="class-card"><i class="fas fa-ring" style="font-size:2.5rem; color:#b85a2a;"></i><h4>Maasai Beading Circle</h4><p>Create your own beaded bracelet.</p><p><strong>2hrs · KSh 2,500</strong></p><button class="book-btn">Reserve Your Spot</button></div>
+      <div class="class-card"><i class="fas fa-gem" style="font-size:2.5rem; color:#b85a2a;"></i><h4>Soapstone Carving</h4><p>Carve and polish a Kisii stone bowl.</p><p><strong>3hrs · KSh 3,200</strong></p><button class="book-btn">Reserve Your Spot</button></div>
+      <div class="class-card"><i class="fas fa-palette" style="font-size:2.5rem; color:#b85a2a;"></i><h4>Khanga Printing</h4><p>Design your own Khanga cloth.</p><p><strong>2.5hrs · KSh 2,800</strong></p><button class="book-btn">Reserve Your Spot</button></div>
+    </div></div></section>
+
+    <!-- Newsletter -->
+    <div class="newsletter">
+      <h2>📬 Join the CurioCraft Family</h2>
+      <p>Get 10% off your first order + exclusive access to new arrivals and artisan stories.</p>
+      <div style="margin-top:1.5rem;">
+        <input type="email" placeholder="Enter your email address">
+        <button>Subscribe</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#">About Us</a><a href="#">Contact</a><a href="#">FAQs</a><a href="#">Shipping</a><a href="#">Returns</a>
+    </div>
+    <p>© 2026 CurioCraft Kenya · Handcrafted with soul, from our village to your home.</p>
+    <div style="margin-top:1rem; font-size:1.5rem; color:#b85a2a;">
+      <i class="fab fa-instagram" style="margin:0 0.5rem; cursor:pointer; transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"></i>
+      <i class="fab fa-facebook" style="margin:0 0.5rem; cursor:pointer; transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"></i>
+      <i class="fab fa-pinterest" style="margin:0 0.5rem; cursor:pointer; transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'"></i>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const products = [
+        { id:1, name:"Maasai Beaded Collar", category:"Maasai Beadwork", price:3800, image:"https://images.unsplash.com/photo-1601121141468-8e8e8e8e8e8e?w=400&h=400&fit=crop", desc:"Vibrant wedding necklace.", sale:false },
+        { id:2, name:"Beaded Bracelet Set", category:"Maasai Beadwork", price:1200, image:"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&h=400&fit=crop", desc:"Stack of 3 colorful bangles.", sale:true },
+        { id:3, name:"Kisii Stone Elephant", category:"Soapstone Carving", price:4500, image:"https://images.unsplash.com/photo-1594732832278-5a5a5a5a5a5a?w=400&h=400&fit=crop", desc:"Hand-carved & dyed.", sale:false },
+        { id:4, name:"Soapstone Bowl", category:"Soapstone Carving", price:2800, image:"https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=400&h=400&fit=crop", desc:"Smooth natural finish.", sale:false },
+        { id:5, name:"Big Five Wood Set", category:"Wood Carving", price:6500, image:"https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=400&fit=crop", desc:"Mini mango wood animals.", sale:true },
+        { id:6, name:"Giraffe Sculpture", category:"Wood Carving", price:3200, image:"https://images.unsplash.com/photo-1534188753412-3f4e5e5e5e5e?w=400&h=400&fit=crop", desc:"African blackwood.", sale:false },
+        { id:7, name:"Maasai Shuka Blanket", category:"Textiles", price:4200, image:"https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=400&fit=crop", desc:"Red/blue plaid, warrior style.", sale:false },
+        { id:8, name:"Khanga Wrap", category:"Textiles", price:1800, image:"https://images.unsplash.com/photo-1595341888016-a392ef81b2de?w=400&h=400&fit=crop", desc:"Cotton with Swahili proverb.", sale:false }
+      ];
+      
+      let cart = [];
+      const grid = document.getElementById('productGrid');
+      const cartSide = document.getElementById('cartSidebar');
+      const cartOverlay = document.getElementById('cartOverlay');
+      const countSpan = document.getElementById('cart-count');
+      const itemsContainer = document.getElementById('cartItemsContainer');
+      const totalSpan = document.getElementById('cartTotal');
+      const slideMenu = document.getElementById('slideMenu');
+      const menuOverlay = document.getElementById('menuOverlay');
+
+      function renderProducts() {
+        grid.innerHTML = products.map(p => `
+          <div class="product-card">
+            ${p.sale ? '<span class="sale-tag">SALE</span>' : ''}
+            <div class="product-img">
+              <img src="${p.image}" alt="${p.name}" onerror="this.parentElement.innerHTML='<i class=\'fas fa-image\' style=\'font-size:3rem; color:#b85a2a;\'></i>'">
+              <button class="quick-view" title="Quick View"><i class="fas fa-eye"></i></button>
+            </div>
+            <div><strong>${p.name}</strong></div>
+            <div style="color:#8b5a3a; font-size:0.85rem;">${p.category}</div>
+            <div style="font-style:italic; font-size:0.9rem; margin:0.3rem 0;">"${p.desc}"</div>
+            <div style="font-weight:bold; font-size:1.2rem;">KSh ${p.price.toLocaleString()}</div>
+            <button class="add-to-cart" data-id="${p.id}"><i class="fas fa-cart-plus"></i> Add to Basket</button>
+          </div>`).join('');
+        
+        document.querySelectorAll('.add-to-cart').forEach(b => {
+          b.addEventListener('click', function(e) {
+            const id = +this.dataset.id;
+            addToCart(id);
+            this.classList.add('added');
+            this.innerHTML = '<i class="fas fa-check"></i> Added!';
+            setTimeout(() => {
+              this.classList.remove('added');
+              this.innerHTML = '<i class="fas fa-cart-plus"></i> Add to Basket';
+            }, 1500);
+          });
+        });
+
+        document.querySelectorAll('.quick-view').forEach(b => {
+          b.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const card = b.closest('.product-card');
+            const name = card.querySelector('strong').textContent;
+            alert(`👀 Quick View: ${name}\n\nHandcrafted with love by Kenyan artisans.\nReady to ship within 24 hours.`);
+          });
+        });
+      }
+
+      function addToCart(id) {
+        const p = products.find(x => x.id===id);
+        const existing = cart.find(i => i.id===id);
+        existing ? existing.quantity++ : cart.push({...p, quantity:1});
+        updateCart(); 
+        if (!cartSide.classList.contains('open')) openCart();
+      }
+      function remove(id) { cart = cart.filter(i => i.id!==id); updateCart(); }
+      function change(id, d) {
+        const item = cart.find(i => i.id===id); if(!item) return;
+        item.quantity += d;
+        if(item.quantity<=0) remove(id); else updateCart();
+      }
+      function total() { return cart.reduce((s,i) => s + i.price*i.quantity, 0); }
+      function updateCart() {
+        countSpan.textContent = cart.reduce((a,i) => a+i.quantity,0);
+        if(!cart.length) itemsContainer.innerHTML = '<p style="text-align:center; color:#999; margin-top:2rem;">🛒 Your basket is empty</p>';
+        else itemsContainer.innerHTML = cart.map(i => `
+          <div style="display:flex; gap:0.8rem; align-items:center; margin-bottom:1rem; padding-bottom:1rem; border-bottom:1px solid #eee; animation: fadeIn 0.3s ease;">
+            <img src="${i.image}" style="width:45px; height:45px; border-radius:10px; object-fit:cover;" onerror="this.style.display='none'">
+            <div style="flex:1;"><strong>${i.name}</strong><br><span style="color:#b85a2a;">KSh ${i.price.toLocaleString()}</span></div>
+            <button class="qty-dec" data-id="${i.id}" style="background:#f0e0cc; border:none; width:28px; height:28px; border-radius:50%; cursor:pointer; transition: background 0.3s ease;">-</button>
+            <span style="font-weight:bold;">${i.quantity}</span>
+            <button class="qty-inc" data-id="${i.id}" style="background:#f0e0cc; border:none; width:28px; height:28px; border-radius:50%; cursor:pointer; transition: background 0.3s ease;">+</button>
+            <button class="rem" data-id="${i.id}" style="background:none; border:none; color:#c44f2c; cursor:pointer; transition: transform 0.3s ease;"><i class="fas fa-trash"></i></button>
+          </div>`).join('');
+        document.querySelectorAll('.qty-dec').forEach(b => b.addEventListener('click', ()=>change(+b.dataset.id,-1)));
+        document.querySelectorAll('.qty-inc').forEach(b => b.addEventListener('click', ()=>change(+b.dataset.id,1)));
+        document.querySelectorAll('.rem').forEach(b => {
+          b.addEventListener('click', ()=>remove(+b.dataset.id));
+          b.addEventListener('mouseover', function() { this.style.transform = 'scale(1.2)'; });
+          b.addEventListener('mouseout', function() { this.style.transform = 'scale(1)'; });
+        });
+        totalSpan.textContent = `KSh ${total().toLocaleString()}`;
+      }
+      function openCart() { cartSide.classList.add('open'); cartOverlay.classList.add('show'); }
+      function closeCart() { cartSide.classList.remove('open'); cartOverlay.classList.remove('show'); }
+      
+      document.getElementById('cartToggle').addEventListener('click', openCart);
+      document.getElementById('closeCart').addEventListener('click', closeCart);
+      cartOverlay.addEventListener('click', closeCart);
+      document.getElementById('checkoutBtn').addEventListener('click', ()=>{
+        if(!cart.length) alert('🛒 Your basket is empty!');
+        else { alert(`🎉 Asante sana! Your order of KSh ${total().toLocaleString()} has been placed.\n\nWe'll send you a WhatsApp confirmation shortly.`); cart=[]; updateCart(); closeCart(); }
+      });
+      
+      // Slide menu toggle with smooth transitions
+      document.getElementById('menuToggle').addEventListener('click', ()=> {
+        slideMenu.classList.add('active');
+        menuOverlay.classList.add('active');
+      });
+      document.getElementById('closeMenuBtn').addEventListener('click', ()=> {
+        slideMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+      });
+      menuOverlay.addEventListener('click', ()=> {
+        slideMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+      });
+      
+      // Smooth scroll for all slide menu links
+      slideMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          // Close menu first
+          slideMenu.classList.remove('active');
+          menuOverlay.classList.remove('active');
+          
+          // Smooth scroll to target with a slight delay for menu close animation
+          if (targetElement) {
+            setTimeout(() => {
+              targetElement.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+              });
+            }, 200);
+          }
+        });
+      });
+
+      // Smooth scroll for nav links too
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'start' 
+            });
+          }
+        });
+      });
+      
+      document.querySelectorAll('.book-btn').forEach(b => b.addEventListener('click', ()=> {
+        const card = b.closest('.class-card');
+        const title = card ? card.querySelector('h4').textContent : 'Workshop';
+        alert(`🌟 ${title} reserved! You'll receive a WhatsApp confirmation shortly. Karibu!`);
+      }));
+
+      document.querySelector('.whatsapp-float').addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('💬 Chat with CurioCraft Kenya on WhatsApp!\n\nWe typically reply within minutes.\n+254 712 345678');
+      });
+
+      document.querySelector('.newsletter button').addEventListener('click', () => {
+        const email = document.querySelector('.newsletter input').value;
+        if(email) alert(`🎁 Welcome to the family! Your 10% discount code is: KARIBU10\n\nWe've sent it to ${email}`);
+        else alert('Please enter your email address.');
+      });
+      
+      renderProducts(); 
+      updateCart();
+    })();
+  </script>
+</body>
+</html>
